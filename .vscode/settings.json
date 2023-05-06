@@ -1,0 +1,7 @@
+{
+    "cmake.configureOnOpen": true,
+    "files.autoSave": "afterDelay",
+    "files.associations": {
+        "cstdlib": "c"
+    }
+}
