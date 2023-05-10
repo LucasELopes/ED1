@@ -3,11 +3,11 @@
 #include "lista.h"
 
 void imprimirLista(No *L) {
-    No *aux = L->prox;
-    if(aux == NULL) {
+    if(L == NULL) {
         printf("Lista vazia.\n");
     }
     else {
+        No *aux = L->prox;
         do {
             printf("%d ", aux->chave);
             aux = aux->prox;
@@ -66,5 +66,21 @@ No* excluiInicio(No *L) {
         }
         free(aux);
     }
+    return L;
+}
+
+No* excluiFim(No *L) {
+    No *aux = L->prox;
+
+    if(L == NULL) return NULL;
+    if(L->prox == L) L = NULL;
+    else {
+        while(aux->prox != L) 
+            aux = aux->prox;
+        L = aux;
+        aux = L->prox;
+        L->prox = aux->prox;
+    }
+    free(aux);
     return L;
 }

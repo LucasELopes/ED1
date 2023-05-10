@@ -12,4 +12,5 @@ No* criaNo(int ch);
 No* inseriInicio(No *L, int ch);
 No* inseriFinal(No *L, int ch);
 No* excluiInicio(No *L);
+No* excluiFinal(No *L);
 #endif

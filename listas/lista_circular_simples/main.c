@@ -8,8 +8,10 @@ void main() {
     L = inseriFinal(L, 3);
     L = inseriFinal(L, 4);
 
-    L = excluiInicio(L);
-    L = excluiInicio(L);
+    L = excluiFim(L);
+    L = excluiFim(L);
+    L = excluiFim(L);
+    L = excluiFim(L);
 
     imprimirLista(L);
 }
