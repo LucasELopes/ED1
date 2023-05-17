@@ -83,18 +83,21 @@ void removeNo(Lista *L, int ch) {
     else {
         while(aux != NULL && aux->ch != ch) 
             aux = aux->prox;
-
-        if(aux == L->inicio) {
-            L->inicio = aux->prox;
+        if(aux != NULL) {
+            if(aux == L->inicio) {
+                L->inicio = aux->prox;
+                L->inicio->ant = NULL;
+            }
+            if(aux == L->fim) {
+                L->fim = aux->ant;
+                L->fim->prox = NULL;
+            }
+            else if(aux != L->fim && aux->prox != L->inicio) {
+                aux->ant->prox = aux->prox;
+                aux->prox->ant = aux->ant;
+            }
+            free(aux);
         }
-        if(aux == L->fim) {
-            L->fim = aux->prox;
-        }
-        else if(aux != L->fim && aux != L->inicio) {
-            aux->ant->prox = aux->prox;
-            aux->prox->ant = aux->ant;
-        }
-        free(aux);
     }
 }
 
@@ -107,7 +110,7 @@ void main() {
     inserirFinal(L, 4);
     inserirFinal(L, 5);
 
-    removeNo(L, 1);
+    removeNo(L, 21);
 
     imprimirLista(L);
 
