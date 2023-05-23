@@ -1,7 +1,9 @@
 #include <stdio.h>
 
+#include <stdio.h>
+
 int buscaBinaria(int *v, int size, int key){
-    int meio = 0, inicio = 0, final = size;
+    int meio = 0, inicio = 0, final = size-1;
 
     while(inicio != final) {
         meio = (final+inicio)/2;
@@ -20,15 +22,15 @@ int buscaBinaria(int *v, int size, int key){
     }
     // Caso o loop termine e o inicio seja igual ao final significa que o valor procurado não existe.
     if(inicio == final) {
+        if(v[inicio] == key)
+            return v[inicio];
         printf("Valor não existe!\n");
         return -1;
     }
 }
 
 void main() {
-    // O vetor tem que ser ordenado para fazer a busca binária.
-    int vetor[] = {13, 14, 19, 43, 47, 52, 65, 82, 89, 91};
-    int vetorSize = sizeof(vetor)/sizeof(vetor[0]);
-
-    buscaBinaria(vetor, vetorSize, 92);
+    int v[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int sizeV = sizeof(v)/sizeof(v[0]);
+    printf("%d\n", buscaBinaria(v, sizeV, 5));
 }
