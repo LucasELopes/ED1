@@ -63,9 +63,11 @@ No* retirarNo(No *p) {
     return NULL;
 }
 
-int delimitador(FILE *file, No* p) {
+int delimitador(FILE *file) {
+    No *p = criarNo('\0');
     char delimitador;
     No *deliDaPilha;
+
     if(file == NULL) {
         printf("Erro ao abrir o arquivo!\n");
         exit(1);
@@ -85,12 +87,7 @@ int delimitador(FILE *file, No* p) {
                 delimitador == 125)
             {   
                 deliDaPilha = retirarNo(p);
-                if(deliDaPilha == NULL) {
-                    printf("Delimitadores desbalanceados\n");
-                }
-                if(deliDaPilha->delim + 1 == delimitador || deliDaPilha->delim + 2 == delimitador)
-                    continue;
-                else {
+                if(deliDaPilha == NULL || (deliDaPilha->delim + 1 != delimitador && deliDaPilha->delim + 2 != delimitador)) {
                     printf("Delimitadores desbalanceados\n");
                     return 0;
                 }

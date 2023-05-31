@@ -63,5 +63,14 @@ Saída:
 */
 No* retirarNo(No *p);
 
-int delimitador(FILE *file, No* p);
+
+/*
+Função: delimitador.
+Descrição: Verifica se os delimitadores estão posicionados corretamente.
+Entrada:
+    FILE* file: O arquivo de entrada contendo os delimitadores.
+Saída:
+    retona 1 caso os delimitadores estejam balanceados e 0, caso contrário.
+*/
+int delimitador(FILE* file);
 #endif
