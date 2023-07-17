@@ -5,13 +5,13 @@
 #include <stdlib.h>
 
 typedef struct noGen {
-    void* info;
+    void *info;
     struct noGen *prox;
 }NoGen;
 
 NoGen* criarNo(void *info);
-NoGen* inserirInicio(NoGen *L, void *info);
-void imprimirLista(NoGen *L, void (*cb) (void *));
+void inserirInicio(NoGen *L, void *info);
+void percorreLista(NoGen *L, void (*cb) (void *));
 
 
 

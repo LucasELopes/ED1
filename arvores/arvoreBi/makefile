@@ -1,14 +1,17 @@
 all: teste
 	./teste
 
-teste: main.o lista.o
-	gcc -o teste main.o lista.o -Wall -Wextra -Werror
+debug: main.c arvore.h
+	gcc -g main.c arvore.c -Wall -Werror -Wextra
+
+teste: main.o arvore.o
+	gcc -o teste main.o arvore.o -Wall -Wextra -Werror
 
 main.o: main.c arvore.h
 	gcc -c main.c -Wall -Wextra -Werror
 
-lista.o: lista.c lista.h
-	gcc -c lista.c -Wall -Wextra -Werror
+arvore.o: arvore.c arvore.h
+	gcc -c arvore.c -Wall -Wextra -Werror
 
 clean:
-	rm -r teste *.o
+	rm -r teste *.o *.out

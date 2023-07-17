@@ -4,21 +4,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct noArvore {
+typedef struct no {
     int chave;
     struct no *esq, *dir;
-}NoArvore;
+}No;
 
-typedef struct noPilha {
-    No *info;
-    struct noPilha *prox;
-}NoPilha;
-
-NoArvore* criarNoArvore(int chave);
-NoPilha* criarNoPilha(NoArvore *info);
-
-void inserirPilha(NoPilha *Pilha, NoArvore info);
-NoPilha* removerPilha(NoPIlha *Pilha);
-void imprimirArvore(NoArvore **Arvore);
+No* criarNo(int chave);
+void imprimirArvore(No **A, int nivel);
+No* busca(No **A, int ch, No **pred);
+void inserirArvore(No **A, int ch);
+No* sucessor(No **A, No **pred);
+void removerNo(No **A, int ch);
 
 #endif

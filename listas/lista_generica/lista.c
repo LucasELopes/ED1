@@ -6,22 +6,21 @@ NoGen* criarNo(void *info) {
         printf("Erro na alocação!\n");
         exit(1);
     }
+
     novoNo->info = info;
     return novoNo;
 }
 
-NoGen* inserirInicio(NoGen *L, void *info) {
+void inserirInicio(NoGen *L, void *info) {
     NoGen *novoNo = criarNo(info);
-    novoNo->prox = L;
-    return novoNo;
+    novoNo->prox = L->prox;
+    L->prox = novoNo;
 }
 
-void imprimirLista(NoGen *L, void (*cb) (void *)) {
-    if(L) {
-        NoGen* aux = L;
-        while(aux) {
-            cb(aux->info);
-            aux = aux->prox;
-        }
+void percorreLista(NoGen *L, void (*cb) (void *)) {
+    NoGen *aux = L->prox;
+    while(aux) {
+        cb(aux->info);
+        aux = aux->prox;
     }
 }
