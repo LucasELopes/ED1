@@ -6,7 +6,6 @@ No* criarNo(int chave) {
         printf("Erro na alocação!\n");
         exit(1);
     }
-
     novoNo->chave = chave;
     return novoNo;
 }
@@ -38,7 +37,6 @@ void imprimirArvore(No **A, int nivel) {
     //         printf("-");
     //     printf("%d\n", (*A)->chave);
     // }
-
 }
 
 No* busca(No **A, int ch, No **pred) {
