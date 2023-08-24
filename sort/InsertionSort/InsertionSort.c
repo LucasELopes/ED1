@@ -14,19 +14,16 @@ void imprimir(int vetor[], int size) {
 }
 
 void insertSort(int vetor[], int size) {
-    int copia, indice;
-
+    int copia;
     for(int i = 1; i < size; i++) {
         copia = vetor[i];
-        indice = i;
-
-        while (indice > 0 && vetor[indice - 1] > copia) {
-            vetor[indice] = vetor[indice - 1];
-            indice--;
+        for(int j = i; j > 0; j--) {
+            if(vetor[j-1] > vetor[j]) {
+                copia = vetor[j];
+                vetor[j] = vetor[j-1];
+                vetor[j-1] = copia;
+            }
         }
-
-        vetor[indice] = copia;
-        
     }
 }
 

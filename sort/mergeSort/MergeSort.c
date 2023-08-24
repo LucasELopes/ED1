@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void imprimirVetor(int vetor[], int sizeVetor) {
 
@@ -8,17 +9,22 @@ void imprimirVetor(int vetor[], int sizeVetor) {
     printf("\n");
 }
 
-void selectionSort(int vetor[], int size) {
-    int copia;
-    for(int i = 0; i < size; i++) {
-        copia = vetor[i];
-        for(int j = i+1; j < size; j++) {
-            if(vetor[i] > vetor[j]) {
-                copia = vetor[j];
-                vetor[j] = vetor[i];
-                vetor[i] = copia;
-            }   
-        }
+void merge(int *vetor, int ini, int meio, int fim) {
+    int i = ini, j = meio, k = fim;
+    int *vetorAux = calloc((fim-ini)+1, sizeof(int));
+
+    while(k < ((fim-ini)+1)) {
+
+    }
+
+}
+
+void mergeSort(int *vetor, int ini, int fim) {
+    if(ini < fim) {
+        int metade = (ini+fim)/2;
+        mergeSort(vetor, ini, metade);
+        mergeSort(vetor, metade+1, fim);
+        merge(vetor, ini, metade, fim);
     }
 }
 
