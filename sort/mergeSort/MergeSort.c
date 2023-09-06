@@ -9,14 +9,34 @@ void imprimirVetor(int vetor[], int sizeVetor) {
     printf("\n");
 }
 
-void merge(int *vetor, int ini, int meio, int fim) {
-    int i = ini, j = meio, k = fim;
-    int *vetorAux = calloc((fim-ini)+1, sizeof(int));
+void merge(int *v, int ini, int meio, int fim) {
+    int i = ini, j = meio+1, k = 0;
+    int *vAux = calloc((fim-ini)+1, sizeof(int));
 
-    while(k < ((fim-ini)+1)) {
-
+    while(k < fim-ini+1) {
+        if(i <= meio && j <= fim) {
+            if(v[i] < v[j]) {
+                vAux[k] = v[i++]; 
+            }
+            else {
+                vAux[k] = v[j++];
+            }
+        }
+        else {
+            if(i <= meio) {
+                vAux[k] = v[i++];
+            }
+            else{
+                vAux[k] = v[j++];
+            }
+        }
+        k++;
     }
-
+    i = ini, k = 0;
+    while(k < ((fim-ini)+1)) {
+        v[i] = vAux[k];
+        i++, k++; 
+    }
 }
 
 void mergeSort(int *vetor, int ini, int fim) {
@@ -29,12 +49,12 @@ void mergeSort(int *vetor, int ini, int fim) {
 }
 
 void main() {
-    int vetorTeste[] = {2, 7, 1, 5, 12, 23123,3123, 23, 2, 2};
+    int vetorTeste[] = {13, 4, 15, 9, 2, 7, 10, 8};
 
     int sizeVetorTeste = sizeof(vetorTeste)/sizeof(vetorTeste[0]);
 
     imprimirVetor(vetorTeste, sizeVetorTeste);
-    selectionSort(vetorTeste, sizeVetorTeste);
+    mergeSort(vetorTeste, 0, sizeVetorTeste-1);
     imprimirVetor(vetorTeste, sizeVetorTeste);
     
 }
