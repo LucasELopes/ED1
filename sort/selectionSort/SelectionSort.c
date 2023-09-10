@@ -8,29 +8,22 @@ void imprimirVetor(int vetor[], int sizeVetor) {
     printf("\n");
 }
 
-void selectionSort(int vetor[], int sizeVetor) {
-    // 2, 1, 5, 7
+void selectionSort(int vetor[], int size) {
     int copia;
-    int indice;
-
-    for(int i = 0; i < sizeVetor; i++) {
+    for(int i = 0; i < size; i++) {
         copia = vetor[i];
-        indice = i;
-
-        for(int j = i + 1; j < sizeVetor; j++) {
-            if(copia > vetor[j]) {
+        for(int j = i+1; j < size; j++) {
+            if(vetor[i] > vetor[j]) {
                 copia = vetor[j];
-                indice = j;
-            }
+                vetor[j] = vetor[i];
+                vetor[i] = copia;
+            }   
         }
-        vetor[indice] = vetor[i];
-        vetor[i] = copia;
     }
-
 }
 
 void main() {
-    int vetorTeste[] = {2};
+    int vetorTeste[] = {2, 7, 1, 5, 12, 23123,3123, 23, 2, 2};
 
     int sizeVetorTeste = sizeof(vetorTeste)/sizeof(vetorTeste[0]);
 
